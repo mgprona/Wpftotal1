@@ -1,0 +1,59 @@
+﻿<Window x:Class="Wpftotal1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="TotalPoint V.1 (WPF) - โปรแกรมจัดการหมุดหลักเขตสำหรับช่างโยงครบวงจร" 
+        Height="661" Width="480" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="180"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,5">
+            <Label Content="จุดตั้งกล้อง:" Width="80"/>
+            <TextBox x:Name="txtStation" Width="150" Height="25" VerticalContentAlignment="Center"/>
+            <Button x:Name="btnImport" Content="นำเข้าไฟล์" Width="100" Height="25" Margin="80,0,0,0" Click="BtnImport_Click"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,5">
+            <Label Content="จุดธงหลัง:" Width="80"/>
+            <TextBox x:Name="txtBS" Width="150" Height="25" VerticalContentAlignment="Center"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,0,0,10">
+            <Label Content="ระยะธงหลัง:" Width="80"/>
+            <TextBox x:Name="txtBSDist" Width="150" Height="25" VerticalContentAlignment="Center" IsReadOnly="True" Background="#F0F0F0"/>
+        </StackPanel>
+
+        <Label Grid.Row="3" Content="จัดการชื่อหมุดหลักเขต (ดับเบิลคลิกที่ชื่อหมุดเพื่อแก้ไข):" Padding="0,0,0,5"/>
+
+        <TextBox x:Name="txtInput" Grid.Row="4" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" 
+                 FontSize="14" IsReadOnly="True" MouseDoubleClick="TxtInput_MouseDoubleClick" FontFamily="Tahoma"/>
+
+        <StackPanel Grid.Row="5" Orientation="Horizontal" Margin="0,10,0,10" HorizontalAlignment="Center">
+            <Button x:Name="btnCalculate" Content="คำนวณ" Width="102" Height="30" Margin="0,0,5,0" Click="BtnCalculate_Click"/>
+            <Button x:Name="btnExportSCR" Content="สร้าง SCR" Width="102" Height="30" Margin="0,0,5,0" Click="BtnExportSCR_Click"/>
+            <Button x:Name="btnExportTXT" Content="ส่งออกTXT" Width="102" Height="30" Margin="0,0,5,0" Click="BtnExportTXT_Click"/>
+            <Button x:Name="btnClear" Content="ล้างข้อมูล" Width="102" Height="30" Click="BtnClear_Click"/>
+        </StackPanel>
+
+        <RichTextBox x:Name="txtOutput" Grid.Row="6" FontFamily="Consolas" FontSize="12" IsReadOnly="True" 
+                     VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text=""/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+
+        <Label Grid.Row="7" x:Name="lblCredit" Content="[Mennz]" Foreground="Gray" FontSize="10" 
+               HorizontalAlignment="Right" MouseDoubleClick="LblCredit_MouseDoubleClick" Cursor="Hand"/>
+    </Grid>
+</Window>
